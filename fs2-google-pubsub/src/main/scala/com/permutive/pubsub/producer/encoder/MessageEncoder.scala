@@ -16,10 +16,28 @@
 
 package com.permutive.pubsub.producer.encoder
 
+import cats.Contravariant
+import cats.syntax.all._
+import java.nio.charset.StandardCharsets
+
 trait MessageEncoder[A] {
+
   def encode(a: A): Either[Throwable, Array[Byte]]
+
+  def contramap[B](f: B => A): MessageEncoder[B] = b => this.encode(f(b))
+
 }
 
 object MessageEncoder {
+
   def apply[A: MessageEncoder]: MessageEncoder[A] = implicitly
+
+  implicit val string: MessageEncoder[String] = _.getBytes(StandardCharsets.UTF_8).asRight
+
+  implicit val MessageEncoderContravariant: Contravariant[MessageEncoder] = new Contravariant[MessageEncoder] {
+
+    override def contramap[A, B](fa: MessageEncoder[A])(f: B => A): MessageEncoder[B] = b => fa.encode(f(b))
+
+  }
+
 }
