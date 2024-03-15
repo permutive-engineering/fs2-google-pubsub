@@ -15,7 +15,7 @@ ThisBuild / startYear := Some(2018)
 ThisBuild / tlSonatypeUseLegacyHost := true
 
 val Scala213 = "2.13.13"
-ThisBuild / crossScalaVersions := Seq(Scala213, "2.12.19", "3.2.0")
+ThisBuild / crossScalaVersions := Seq(Scala213, "2.12.19", "3.2.2")
 ThisBuild / scalaVersion := Scala213 // the default Scala
 ThisBuild / tlJdkRelease := Some(11)
 ThisBuild / githubWorkflowJavaVersions := Seq(JavaSpec.temurin("11"))
