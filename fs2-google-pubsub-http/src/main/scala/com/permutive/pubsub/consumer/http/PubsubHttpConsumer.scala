@@ -35,8 +35,7 @@ import scala.concurrent.duration._
 
 object PubsubHttpConsumer {
 
-  /**
-    * Subscribe with manual acknowledgement
+  /** Subscribe with manual acknowledgement
     *
     * @param projectId          google cloud project id
     * @param subscription       name of the subscription
@@ -69,8 +68,7 @@ object PubsubHttpConsumer {
       onDecode = (record, value) => Applicative[F].pure(record.toConsumerRecord(value)),
     )
 
-  /**
-    * Subscribe with automatic acknowledgement
+  /** Subscribe with automatic acknowledgement
     *
     * @param projectId          google cloud project id
     * @param subscription       name of the subscription
@@ -103,8 +101,7 @@ object PubsubHttpConsumer {
       onDecode = (record, value) => record.ack.as(value),
     )
 
-  /**
-    * Subscribe to the raw stream, receiving the the message as retrieved from PubSub
+  /** Subscribe to the raw stream, receiving the the message as retrieved from PubSub
     *
     * @param projectId          google cloud project id
     * @param subscription       name of the subscription

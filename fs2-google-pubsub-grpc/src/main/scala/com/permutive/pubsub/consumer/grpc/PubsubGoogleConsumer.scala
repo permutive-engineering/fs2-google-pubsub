@@ -30,8 +30,7 @@ import scala.util.control.NoStackTrace
 
 object PubsubGoogleConsumer {
 
-  /**
-    * Indicates the underlying Java PubSub consumer has failed.
+  /** Indicates the underlying Java PubSub consumer has failed.
     *
     * @param cause the cause of the failure
     */
@@ -39,8 +38,7 @@ object PubsubGoogleConsumer {
       extends Throwable("Internal Java PubSub consumer failed", cause)
       with NoStackTrace
 
-  /**
-    * Subscribe with manual acknowledgement
+  /** Subscribe with manual acknowledgement
     *
     * The stream fails with an [[InternalPubSubError]] if the underlying Java consumer fails.
     *
@@ -71,8 +69,7 @@ object PubsubGoogleConsumer {
         ),
     )
 
-  /**
-    * Subscribe with automatic acknowledgement
+  /** Subscribe with automatic acknowledgement
     *
     * The stream fails with an [[InternalPubSubError]] if the underlying Java consumer fails.
     *
@@ -94,8 +91,7 @@ object PubsubGoogleConsumer {
       onDecode = (record, value) => record.ack.as(value),
     )
 
-  /**
-    * Subscribe to the raw stream, receiving the the message as retrieved from PubSub
+  /** Subscribe to the raw stream, receiving the the message as retrieved from PubSub
     *
     * The stream fails with an [[InternalPubSubError]] if the underlying Java consumer fails.
     */

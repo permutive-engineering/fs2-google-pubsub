@@ -24,8 +24,7 @@ import scala.concurrent.duration.FiniteDuration
 
 object CachedTokenProvider {
 
-  /**
-    * Generate a cached token provider from an underlying provider.
+  /** Generate a cached token provider from an underlying provider.
     *
     * @param underlying            the underlying token provider to use when a new token is required
     * @param safetyPeriod          how much time less than the indicated expiry to cache a token for; this is to give a

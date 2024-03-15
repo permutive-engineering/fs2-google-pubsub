@@ -25,8 +25,7 @@ import org.http4s.client.Client
 
 object BatchingHttpPubsubProducer {
 
-  /**
-    * Create an HTTP PubSub producer which produces in batches.
+  /** Create an HTTP PubSub producer which produces in batches.
     *
     * @param projectId                google cloud project id
     * @param topic                    the topic to produce to

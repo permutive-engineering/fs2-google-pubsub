@@ -27,8 +27,7 @@ trait PubsubReader[F[_]] {
 
   def nack(ackId: List[AckId]): F[Unit]
 
-  /**
-    * The new ack deadline with respect to the time this request was sent to the Pub/Sub system.
+  /** The new ack deadline with respect to the time this request was sent to the Pub/Sub system.
     * For example, if the value is 10, the new ack deadline will expire 10 seconds after
     * the subscriptions.modifyAckDeadline call was made. Specifying zero might immediately make the message
     * available for delivery to another subscriber client. This typically results in an increase in the rate of

@@ -25,8 +25,7 @@ import scala.concurrent.duration.FiniteDuration
 
 object RefCache {
 
-  /**
-    * Caches a single instance of type `A` for a period of time before refreshing it automatically.
+  /** Caches a single instance of type `A` for a period of time before refreshing it automatically.
     *
     * The time between refreshes is dynamic and based on the value of each `A` itself. This is similar to
     * [[RefreshableEffect]] except that only exposes a fixed refresh frequency.

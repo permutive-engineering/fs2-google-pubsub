@@ -18,8 +18,7 @@ package com.permutive.pubsub.producer.http
 
 import scala.concurrent.duration._
 
-/**
-  * Configuration for the PubSub HTTP producer.
+/** Configuration for the PubSub HTTP producer.
   *
   * Note: It is up to the user to raise exceptions and terminate the lifecyle of services if this is desired when
   * retries are exhausted. Token refreshing runs on a background fiber so raising exceptions in
