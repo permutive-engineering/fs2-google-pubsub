@@ -29,7 +29,7 @@ object Dependencies {
 
     val log4cats      = "org.typelevel" %% "log4cats-core"  % Versions.log4cats
     val log4catsSlf4j = "org.typelevel" %% "log4cats-slf4j" % Versions.log4cats % Test
-    val slf4j         = "org.slf4j"      % "slf4j-simple"   % "1.7.32"          % Test
+    val slf4j         = "org.slf4j"      % "slf4j-simple"   % "1.7.36"          % Test
 
     val jwt = "com.auth0"        % "java-jwt"            % Versions.jwt
     val gcp = "com.google.cloud" % "google-cloud-pubsub" % Versions.gcp
