@@ -14,7 +14,7 @@ object Dependencies {
     val scalatest        = "3.2.14"
     val scalatestPlus    = "3.2.14.0"
     val testContainers   = "0.40.14"
-    val collectionCompat = "2.8.1"
+    val collectionCompat = "2.11.0"
   }
 
   object Libraries {
