@@ -20,8 +20,7 @@ import com.google.cloud.pubsub.v1.Subscriber
 
 import scala.concurrent.duration._
 
-/**
-  * Pubsub subscriber config.
+/** Pubsub subscriber config.
   *
   * @param maxQueueSize configures two options: the max size of the backing queue, and, the "max outstanding element count" option of Pubsub
   * @param parallelPullCount number of parallel pullers, see [[https://javadoc.io/static/com.google.cloud/google-cloud-pubsub/1.100.0/com/google/cloud/pubsub/v1/Subscriber.Builder.html#setParallelPullCount-int-]]
