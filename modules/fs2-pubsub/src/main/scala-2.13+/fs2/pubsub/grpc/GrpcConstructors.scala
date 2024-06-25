@@ -16,8 +16,6 @@
 
 package fs2.pubsub.grpc
 
-import java.util.Base64
-
 import cats.effect.Temporal
 import cats.syntax.all._
 
@@ -114,7 +112,7 @@ object GrpcConstructors {
         ): F[List[MessageId]] = {
           val toPubSubMessage = (record: PubSubRecord.Publisher[A]) =>
             PubsubMessage(
-              data = ByteString.copyFromUtf8(Base64.getEncoder().encodeToString(MessageEncoder[A].encode(record.data))),
+              data = ByteString.copyFrom(MessageEncoder[A].encode(record.data)),
               attributes = record.attributes
             )
 
@@ -140,7 +138,7 @@ object GrpcConstructors {
 
           val toPubSubRecord = (message: ReceivedMessage) =>
             PubSubRecord.Subscriber(
-              message.message.map(m => m.data.toByteArray()).map(Base64.getDecoder().decode),
+              message.message.map(m => m.data.toByteArray()),
               message.message.map(_.attributes).orEmpty,
               message.message.map(_.messageId).map(MessageId(_)),
               message.message.flatMap(_.publishTime.map(_.asJavaInstant)),

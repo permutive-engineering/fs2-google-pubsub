@@ -16,12 +16,34 @@
 
 package fs2.pubsub.grpc
 
+import cats.effect.Temporal
+
+import fs2.pubsub.MessageEncoder
+import fs2.pubsub.dsl.client.PubSubClientStep
+import fs2.pubsub.dsl.publisher.PubSubPublisherStep
+import fs2.pubsub.dsl.subscriber.PubSubSubscriberStep
+
 object GrpcConstructors {
 
-  trait Client {}
+  trait Publisher {
 
-  trait Subscriber {}
+    @deprecated("gRPC implementation is not available on Scala 2.12", "1.1.0")
+    def grpc[F[_]: Temporal, A: MessageEncoder]: PubSubPublisherStep[F, A] = ???
 
-  trait Publisher {}
+  }
+
+  trait Subscriber {
+
+    @deprecated("gRPC implementation is not available on Scala 2.12", "1.1.0")
+    def grpc[F[_]: Temporal]: PubSubSubscriberStep[F] = ???
+
+  }
+
+  trait Client {
+
+    @deprecated("gRPC implementation is not available on Scala 2.12", "1.1.0")
+    def grpc[F[_]: Temporal]: PubSubClientStep[F] = ???
+
+  }
 
 }
